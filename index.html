@@ -61,11 +61,11 @@
         <p class="text-neutral/50">0 jobs</p>
       </div>
       <div class="btn-all flex gap-3 my-3">
-        <button id="btn-all-filter" class="btn btn-primary">All</button>
-        <button id="btn-interview-filter" class="btn btn-outline btn-primary">
+        <button onclick="toggleStyle('btn-all-filter')" id="btn-all-filter" class="btn btn-primary">All</button>
+        <button onclick="toggleStyle('btn-interview-filter')" id="btn-interview-filter" class="btn btn-outline btn-primary">
           Interview
         </button>
-        <button id="btn-rejected-filter" class="btn btn-outline btn-primary">
+        <button onclick="toggleStyle('btn-rejected-filter')" id="btn-rejected-filter" class="btn btn-outline btn-primary">
           Rejected
         </button>
       </div>
@@ -361,6 +361,8 @@
           </div>
         </div>
       </section>
+
+      <script src="./script/script.js"></script>
     </main>
   </body>
 </html>
