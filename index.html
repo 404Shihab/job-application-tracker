@@ -15,19 +15,352 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- icons -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
-        *{
-            font-family: "Inter", sans-serif;
-        }
+      * {
+        font-family: "Inter", sans-serif;
+      }
     </style>
   </head>
-  <body>
-    
+  <body class="bg-base-200">
+    <header class="w-[80%] mx-auto">
+      <h1 class="text-3xl font-bold py-3">Job Application Tracker</h1>
+      <div class="grid grid-cols-3 font-bold gap-4">
+        <div class="bg-white rounded-md p-5">
+          <p>Total</p>
+          <p id="total">0</p>
+        </div>
+        <div class="bg-white rounded-md p-5">
+          <p>Interview</p>
+          <p id="interview" class="text-green-500">0</p>
+        </div>
+        <div class="bg-white rounded-md p-5">
+          <p>Rejected</p>
+          <p id="rejected" class="text-red-500">0</p>
+        </div>
+      </div>
+    </header>
+    <hr class="my-5 border-gray-300 w-[80%] mx-auto" />
+    <main class="w-[80%] mx-auto">
+      <div class="flex justify-between m-3">
+        <h2 class="text-2xl font-bold">Available Jobs</h2>
+        <p class="text-neutral/50">0 jobs</p>
+      </div>
+      <div class="btn-all flex gap-3 my-3">
+        <button id="btn-all-filter" class="btn btn-primary">All</button>
+        <button id="btn-interview-filter" class="btn btn-outline btn-primary">
+          Interview
+        </button>
+        <button id="btn-rejected-filter" class="btn btn-outline btn-primary">
+          Rejected
+        </button>
+      </div>
+
+      <section id="cards" class="space-y-6">
+        <div class="card-1 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                Mobile First Corp
+              </h3>
+              <p class="job-title text-neutral/50">React Native Developer</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Remote • Full-time • $130,000 - $175,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-2 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                CloudNet Solutions
+              </h3>
+              <p class="job-title text-neutral/50">
+                Backend Developer (Node.js)
+              </p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Hybrid • Full-time • $110,000 - $150,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Develop scalable backend systems and REST APIs for enterprise
+                cloud applications.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-3 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">AI Labs Inc</h3>
+              <p class="job-title text-neutral/50">Machine Learning Engineer</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Remote • Full-time • $140,000 - $190,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Design and deploy ML models to improve recommendation systems
+                and automation tools.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-4 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                CyberShield Tech
+              </h3>
+              <p class="job-title text-neutral/50">Cybersecurity Analyst</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                On-site • Full-time • $95,000 - $125,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Monitor and secure enterprise systems against cyber threats and
+                vulnerabilities.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-5 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                DataBridge Analytics
+              </h3>
+              <p class="job-title text-neutral/50">Data Scientist</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Remote • Contract • $120,000 - $160,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Analyze large datasets and build predictive models to support
+                business decisions.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-6 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                NextGen Software
+              </h3>
+              <p class="job-title text-neutral/50">
+                Frontend Developer (Vue.js)
+              </p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Hybrid • Full-time • $100,000 - $135,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Create responsive user interfaces and optimize performance for
+                modern web apps.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-7 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                DevOps Masters
+              </h3>
+              <p class="job-title text-neutral/50">DevOps Engineer</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                Remote • Full-time • $115,000 - $155,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Automate CI/CD pipelines and manage cloud infrastructure for
+                high-availability systems.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-8 p-6 flex justify-between bg-white rounded-md">
+          <div class="left-side">
+            <div class="job-info py-4">
+              <h3 class="compnay-name text-xl font-bold my-1">
+                QuantumByte Systems
+              </h3>
+              <p class="job-title text-neutral/50">Full Stack Developer</p>
+            </div>
+            <div class="job-details">
+              <p class="py-3 text-neutral/50">
+                On-site • Full-time • $125,000 - $170,000
+              </p>
+              <button class="job-status btn btn-soft my-3">Not Applied</button>
+            </div>
+            <div class="job-summary">
+              <p>
+                Work across frontend and backend technologies to build scalable
+                SaaS platforms.
+              </p>
+            </div>
+            <div class="inter-reject-btns flex gap-2 py-3">
+              <div class="inter-btn">
+                <button class="btn btn-outline btn-success">INTERVIEW</button>
+              </div>
+              <div class="reject-btn">
+                <button class="btn btn-outline btn-error">REJECTED</button>
+              </div>
+            </div>
+          </div>
+          <div class="rigt-side">
+            <button class="delete-btn btn btn-circle">
+              <i class="fa-regular fa-trash-can text-gray-400"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
